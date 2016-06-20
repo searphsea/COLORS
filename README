@@ -1,0 +1,29 @@
+<1>Installation
+
+step1: Install Eigen, a C++ library for calculating SVD. 
+Eigen can be download from https://bitbucket.org/eigen/eigen/get/3.2.6.tar.bz2
+
+step2: Complie COLORS using the following command:
+g++ -o colors main.cpp lrs.h lrs.cpp matrix.h matrix.cpp sequence.h sequence.cpp type.h -O3 -Iyour_eigen_install_dir/include/eigen 
+
+Please replace your_eigen_insall_dir with the directory you specificed in step1.
+
+
+<2>Usage
+
+./colors msa-file output-prefix
+
+The MSA is represented by a M by N matrix, where M is the number of sequences and N is the length of the target.
+
+COLORS will output 6 files: output-prefix.mi_lrs, output-prefix.omes_lrs, output-prefix.cov_lrs, output-prefix.mi_score, output-prefix.omes_score and output-prefix.cov_score. 
+
+output-prefix.mi_lrs is the sparse matrix calculated by COLORS given the original MI matrix.
+output-prefix.mi_score has 5 columns: position_i, position_j, original_score, apc_score and lrs_score.
+
+<3>Contact
+
+COLORS is developed by Haicang Zhang (zhanghaicang@ict.ac.cn) supervised by Dongbo Bu (dbu.ict.ac.cn) and Wei-Mou Zheng(zheng@itp.ac.cn).
+
+<4>Reference
+Zhang, Haicang, et al. "Improving residue–residuecontact prediction via low-rank and sparse decomposition of residue correlation matrix." Biochemical and biophysical research communications 472.1 (2016): 217-222.
+
