@@ -1,4 +1,4 @@
-#include "lrs.h"
+#include "colors.h"
 #include "matrix.h"
 
 #include <cmath>
@@ -17,26 +17,27 @@ void lrs(
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>& A,
     Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>& E, double lambda) {
 
-    int M = D.rows();
-    int N = D.cols();
+    const int M = D.rows();
+    const int N = D.cols();
 
     Matrix Y = D;
     A = Matrix::Zero(M, N);
     E = Matrix::Zero(M, N);
     Array zero = Matrix::Zero(M, N);
-    
-    double rho = 1.5;
+
+    const double rho = 1.5;
 
     Eigen::JacobiSVD<Matrix> svd_only_singlar_values(Y);
-    double norm_two =
+    const double norm_two =
         svd_only_singlar_values.singularValues()(0);
-    double norm_inf = Y.array().abs().maxCoeff() / lambda;
-    double dual_norm = std::max(norm_two, norm_inf);
-    double d_norm = D.norm();
+    const double norm_inf = Y.array().abs().maxCoeff() / lambda;
+    const double dual_norm = std::max(norm_two, norm_inf);
+    const double d_norm = D.norm();
     Y /= dual_norm;
 
     double mu = 1.25 / norm_two;
-    double mu_bar = mu * 1.0e+7;
+    const double mu_bar = mu * 1.0e+7;
+
     bool converged = false;
     int max_iter = 1000;
     double error_tolerance = 1.0e-7;
@@ -45,9 +46,9 @@ void lrs(
     int sv = 10;
     
     while (!converged) {
-        
         Array temp_T = D - A + (1.0 / mu) * Y;
         E = (temp_T - lambda / mu).max(zero) + (temp_T + lambda / mu).min(zero);
+
         E = E.array().max(zero);
 
         Eigen::JacobiSVD<Matrix> svd(D - E + 1.0 / mu * Y,

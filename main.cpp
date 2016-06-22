@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iomanip>
 
-#include "lrs.h"
+#include "colors.h"
 #include "sequence.h"
 #include "matrix.h"
 
