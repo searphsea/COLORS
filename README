@@ -22,8 +22,6 @@ output-prefix.mi_score has 5 columns: position_i, position_j, original_score, ap
 
 <3>Contact and Citation 
 
-COLORS is developed by Haicang Zhang (zhanghaicang@ict.ac.cn) supervised by Dongbo Bu (dbu.ict.ac.cn) and Wei-Mou Zheng(zheng@itp.ac.cn).
-
 Haicang Zhang, Yujuan Gao, Minghua Deng, Chao Wang, Jianwei Zhu, Shuai Cheng Li, Wei-Mou Zheng, Dongbo Bu. Improving residue–residue contact prediction via low-rank and sparse decomposition of residue correlation matrix. Biochemical and biophysical research communications 472.1 (2016): 217-222.
 
 
