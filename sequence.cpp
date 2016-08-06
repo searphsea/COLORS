@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <string> 
-
+//
 int read_msa(const char*file_path, vector<string>& msa){
     ifstream fin;
     fin.open(file_path);

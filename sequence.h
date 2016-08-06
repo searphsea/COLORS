@@ -1,6 +1,6 @@
 #ifndef _SEQUENCE_H
 #define _SEQUENCE_H
-
+//
 #define SEQ_BUFFER_SIZE 10240
 
 #include <cstdio>
