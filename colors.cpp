@@ -1,6 +1,7 @@
 #include "colors.h"
 #include "matrix.h"
 //
+#include <cstdio>
 #include <cmath>
 #include <iostream>
 
